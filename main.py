@@ -44,7 +44,7 @@ def requestSpesficSeason(show,s,anime):
         downloadSources = episodes[j].getDownloadSources()
 
         for src in downloadSources:
-		print("in download")
+	    print("in download")
             data["epsds"].append({"EpsdName":[episodes[j].title],"quality":str(src.quality),"link":src.link})
             #print(str(src.quality) + ' p ' + src.link)
     print(data)
