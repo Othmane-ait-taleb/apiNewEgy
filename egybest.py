@@ -284,6 +284,7 @@ class Episode:
         self.downloadLinksList = []
 
     def getDownloadSources(self):
+        print("in bgning of download source")
         try:
             baseURL = self.link.split("/")[0] + "//" + self.link.split("/")[2]
 
@@ -317,7 +318,7 @@ class Episode:
                 jsCode = re.sub(",ismob=(.*)\(navigator\[(.*)\]\)[,;]", ";", jsCode)
                 jsCode = re.sub("var a0b=function\(\)(.*)a0a\(\);", "", jsCode)
                 jsCode += "var link = ''; for (var i = 0; i <= " + secondEncodingArray + "['length']; i++) { link += " + firstEncodingArray + "[" + secondEncodingArray + "[i]] || ''; } return [link, " + encodedAdLinkVar + "[0]] }"
-
+                print("befor using execute js")
                 jsCodeReturn = executeJS(jsCode)()
                 verificationPath = jsCodeReturn[0]
                 encodedAdPath = jsCodeReturn[1]
