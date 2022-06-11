@@ -320,11 +320,11 @@ class Episode:
                 jsCode = re.sub(",ismob=(.*)\(navigator\[(.*)\]\)[,;]", ";", jsCode)
                 jsCode = re.sub("var a0b=function\(\)(.*)a0a\(\);", "", jsCode)
                 jsCode += "var link = ''; for (var i = 0; i <= " + secondEncodingArray + "['length']; i++) { link += " + firstEncodingArray + "[" + secondEncodingArray + "[i]] || ''; } return [link, " + encodedAdLinkVar + "[0]] }"
+                print(jsCode)
                 # jsCodeReturn = executeJS(jsCode)()
                 ctx = py_mini_racer.MiniRacer()
                 ctx.eval(jsCode)
                 jsCodeReturn=ctx.call("hwRaFaM")
-                print(jsCode)
                 verificationPath = jsCodeReturn[0]
                 encodedAdPath = jsCodeReturn[1]
 
