@@ -58,7 +58,7 @@ def allResultforSearch(name):
         for res in results:
             data['info'].append({"tile":res.title,"poster":res.posterURL,"rating":res.rating})
     return data
-
+allResultforSearch("batman")
 app = Flask(__name__)
 
 @app.route('/show/',methods=['GET'])
